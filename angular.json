@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/theme/material-theme.scss",
               "src/styles.scss"
             ],
             "scripts": []
@@ -96,6 +97,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/theme/material-theme.scss",
               "src/styles.scss"
             ],
             "scripts": []
@@ -103,5 +105,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
