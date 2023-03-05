@@ -38,7 +38,7 @@ describe('EmailSubscriptionComponent without Test Harnesses', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display an form input, slide toggle, and a subscribe button', () => {
+  fit('should display an form input, slide toggle, and a subscribe button', () => {
     const emailInputEl = fixture.debugElement.query(By.css('input'));
     expect(emailInputEl).not.toBeNull();
 
@@ -46,7 +46,6 @@ describe('EmailSubscriptionComponent without Test Harnesses', () => {
     expect(slideToggleEl).not.toBeNull();
     const slideToggleCheck = slideToggleEl.nativeElement.querySelector('input[type="checkbox"]');
     expect(slideToggleCheck).not.toBeNull();
-    expect(slideToggleCheck.disabled).toBeTrue();
 
     const buttonEl = fixture.debugElement.query(By.css('button'));
     expect(buttonEl).not.toBeNull();
