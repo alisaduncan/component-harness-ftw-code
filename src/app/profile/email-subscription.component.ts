@@ -20,7 +20,7 @@ export interface EmailSubscription {
     </div>
   `,
   styles: [`
-    mat-form-field.mat-form-field {
+    mat-form-field.mat-mdc-form-field {
       font-size: 16px;
     }
   `]

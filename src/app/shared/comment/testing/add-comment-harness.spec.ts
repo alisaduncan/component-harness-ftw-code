@@ -5,7 +5,6 @@ import { AddCommentComponent } from '../add-comment.component';
 import { FormsModule } from '@angular/forms';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { AddCommentHarness } from './add-comment-harness';
-import { MatFormFieldHarness } from '@angular/material/form-field/testing';
 
 describe('AddComment Harness', () => {
   let fixture: ComponentFixture<AddCommentHarnessTest>;

@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EmailSubscriptionComponent } from './email-subscription.component';
-import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -31,6 +31,9 @@ describe('EmailSubscriptionComponent without Test Harnesses', () => {
 
     fixture = TestBed.createComponent(EmailSubscriptionComponent);
     component = fixture.componentInstance;
+  });
+
+  beforeEach(() => {
     fixture.detectChanges();
   });
 
@@ -44,16 +47,15 @@ describe('EmailSubscriptionComponent without Test Harnesses', () => {
 
     const slideToggleEl = fixture.debugElement.query(By.css('mat-slide-toggle'));
     expect(slideToggleEl).not.toBeNull();
-    const slideToggleCheck = slideToggleEl.nativeElement.querySelector('input[type="checkbox"]');
-    expect(slideToggleCheck).not.toBeNull();
-    expect(slideToggleCheck.disabled).toBeTrue();
+    const slideToggleBtn = slideToggleEl.nativeElement.querySelector('button');
+    expect(slideToggleBtn).not.toBeNull();
 
     const buttonEl = fixture.debugElement.query(By.css('button'));
     expect(buttonEl).not.toBeNull();
   });
 
   it('should disable subscribe button when email is empty', async () => {
-    const buttonEl = fixture.debugElement.query(By.css('button'));
+    const buttonEl = fixture.debugElement.query(By.directive(MatIconButton));
     expect(buttonEl).not.toBeNull();
     expect(buttonEl.nativeElement.disabled).toBeTrue();
 
@@ -77,7 +79,7 @@ describe('EmailSubscriptionComponent without Test Harnesses', () => {
     fixture.detectChanges();
     await fixture.whenStable();
 
-    const buttonEl = fixture.debugElement.query(By.css('button'));
+    const buttonEl = fixture.debugElement.query(By.directive(MatIconButton));
     expect(buttonEl).not.toBeNull();
     buttonEl.triggerEventHandler('click', null);
 
