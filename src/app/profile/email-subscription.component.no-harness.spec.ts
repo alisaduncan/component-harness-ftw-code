@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EmailSubscriptionComponent } from './email-subscription.component';
-import { MatLegacyFormField as MatFormField, MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
-import { MatLegacySlideToggleModule as MatSlideToggleModule } from '@angular/material/legacy-slide-toggle';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
-import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
+import { MatInputModule } from '@angular/material/input';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
 
@@ -31,6 +31,9 @@ describe('EmailSubscriptionComponent without Test Harnesses', () => {
 
     fixture = TestBed.createComponent(EmailSubscriptionComponent);
     component = fixture.componentInstance;
+  });
+
+  beforeEach(() => {
     fixture.detectChanges();
   });
 
@@ -38,21 +41,21 @@ describe('EmailSubscriptionComponent without Test Harnesses', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('should display an form input, slide toggle, and a subscribe button', () => {
+  it('should display an form input, slide toggle, and a subscribe button', () => {
     const emailInputEl = fixture.debugElement.query(By.css('input'));
     expect(emailInputEl).not.toBeNull();
 
     const slideToggleEl = fixture.debugElement.query(By.css('mat-slide-toggle'));
     expect(slideToggleEl).not.toBeNull();
-    const slideToggleCheck = slideToggleEl.nativeElement.querySelector('input[type="checkbox"]');
-    expect(slideToggleCheck).not.toBeNull();
+    const slideToggleBtn = slideToggleEl.nativeElement.querySelector('button');
+    expect(slideToggleBtn).not.toBeNull();
 
     const buttonEl = fixture.debugElement.query(By.css('button'));
     expect(buttonEl).not.toBeNull();
   });
 
   it('should disable subscribe button when email is empty', async () => {
-    const buttonEl = fixture.debugElement.query(By.css('button'));
+    const buttonEl = fixture.debugElement.query(By.directive(MatIconButton));
     expect(buttonEl).not.toBeNull();
     expect(buttonEl.nativeElement.disabled).toBeTrue();
 
@@ -76,7 +79,7 @@ describe('EmailSubscriptionComponent without Test Harnesses', () => {
     fixture.detectChanges();
     await fixture.whenStable();
 
-    const buttonEl = fixture.debugElement.query(By.css('button'));
+    const buttonEl = fixture.debugElement.query(By.directive(MatIconButton));
     expect(buttonEl).not.toBeNull();
     buttonEl.triggerEventHandler('click', null);
 

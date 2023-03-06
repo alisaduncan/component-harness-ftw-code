@@ -7,14 +7,14 @@
 //  If you specify typography styles for the components you use elsewhere, you should delete this line.
 //  If you don't need the default component typographies but still want the hierarchy styles,
 //  you can delete this line and instead use:
-//    `@include mat.legacy-typography-hierarchy(mat.define-legacy-typography-config());`
-@include mat.all-legacy-component-typographies();
-@include mat.legacy-core();
+//    `@include mat.legacy-typography-hierarchy(mat.define-typography-config());`
+@include mat.all-component-typographies();
+@include mat.core();
 
 $primary: mat.define-palette(mat.$deep-purple-palette);
 $accent: mat.define-palette(mat.$light-green-palette);
 $warn: mat.define-palette(mat.$pink-palette);
-$typography: mat.define-legacy-typography-config($font-family: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"');
+$typography: mat.define-typography-config($font-family: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"');
 
 
 $theme: mat.define-light-theme((
@@ -27,12 +27,16 @@ $theme: mat.define-light-theme((
 ));
 
 // Emit theme-dependent styles for common features used across multiple components.
-@include mat.legacy-core-theme($theme);
-@include mat.legacy-button-theme($theme);
-@include mat.legacy-input-theme($theme);
-@include mat.legacy-slide-toggle-theme($theme);
-@include mat.legacy-form-field-theme($theme);
-@include mat.legacy-button-typography($typography);
-@include mat.legacy-input-typography($typography);
-@include mat.legacy-slide-toggle-typography($typography);
-@include mat.legacy-form-field-typography($typography);
+@include mat.core-theme($theme);
+@include mat.button-theme($theme);
+@include mat.fab-theme($theme);
+@include mat.icon-button-theme($theme);
+@include mat.input-theme($theme);
+@include mat.slide-toggle-theme($theme);
+@include mat.form-field-theme($theme);
+@include mat.button-typography($typography);
+@include mat.fab-typography($typography);
+@include mat.icon-button-typography($typography);
+@include mat.input-typography($typography);
+@include mat.slide-toggle-typography($typography);
+@include mat.form-field-typography($typography);
